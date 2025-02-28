@@ -1,0 +1,598 @@
+<!--[if HTML5]><![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <!-- force IE 8 edge -->
+        <!--[if !HTML5]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <![endif]-->
+
+        <meta charset="utf-8">
+
+        <!-- define viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>            MyTimetable</title>
+
+        <!-- define the base path -->
+        <base href="https://www.abdn.ac.uk/mytimetable/"/>
+
+        <!-- shortcut icon -->
+        <link rel="shortcut icon" type="image/x-icon"
+              href="https://www.abdn.ac.uk/mytimetable/assets/favicon.ico" />
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script>
+        <![endif]-->
+
+        <!-- Site styling -->
+        <link rel="stylesheet" href="https://www.abdn.ac.uk/mytimetable/assets/css/core.min.css"
+              type="text/css" media="screen, projection" />
+
+        <!-- Load the absolutely essential JavaScript - JQuery libs etc. everything else at the end -->
+                    <script src="https://www.abdn.ac.uk/mytimetable/assets/js/core.min.js"></script>
+            </head>
+
+    <body>
+        <div class="environment environment-production">production</div>
+
+        
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <img src="https://www.abdn.ac.uk/mytimetable/assets/img/uoalogo.png" alt="University of Aberdeen"
+                             title="University of Aberdeen" class="uoa-logo"/>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <p id="loggedinuserinfo" class="text-right">
+                            You  are logged in as sgima sigma boy (<a href="https://www.abdn.ac.uk/mytimetable/sessions/logout">Log Out</a>)                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+<nav class="navbar navbar-default">
+
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#mytimetable-menubar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">MyTimetable</span>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="mytimetable-menubar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="https://www.abdn.ac.uk/mytimetable/timetable/myTimetable">Timetable</a>
+                </li>
+
+                <li class="">
+                    <a href="https://www.abdn.ac.uk/mytimetable/enrol">Pick Classes</a>
+                </li>
+
+                <li class="">
+                    <a href="https://www.abdn.ac.uk/mytimetable/subscribe/index">Subscribe</a>
+                </li>
+
+                <li class="active">
+                    <a href="https://www.abdn.ac.uk/mytimetable/attendancecodes/input">Record Attendance</a>
+                </li>
+
+                <li class="">
+                    <a href="https://www.abdn.ac.uk/mytimetable/courses/findCourses">All Courses</a>
+                </li>
+
+                <li class="">
+                    <a href="https://www.abdn.ac.uk/mytimetable/help">Help</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <button id="reportProblem" type="button" class="btn btn-action navbar-btn" data-toggle="modal"
+                            data-target="#reportProblemModal">
+                        Report a Problem
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><!-- breadcrumb navigation -->
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+                            <li>
+                                            <a href="https://www.abdn.ac.uk/mytimetable/timetable/myTimetable">MyTimetable</a>
+                                    </li>
+                            <li>
+                                            <span id="breadcrumb-pos">Attendance Recorded Successfully: CS3528: Friday 15:00</span>                                    </li>
+                    </ol>
+    </div>
+</div>
+
+<div id="alertscontainer" class="container">
+</div><div class="container content-area">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Attendance Recorded</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="panel panel-success panel-grid-mode">
+                <div class="panel-body">
+                    <p class="text-center">
+                        CS3528: SOFTWARE ENGINEERING AND PROFESSIONAL PRACTICE                </p>
+                    <p class="text-center">
+                        Fri 28th February 2025<br>
+                        15:00 - 17:00                    </p>
+                    <div class="container-icon">
+                        <font size="100"✓</font>
+                        <!-- <i class="fa fa-4x fa-check"></i> -->
+                    </div>
+                    <h2>Attendance Recorded</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="reportProblemModal" tabindex="-1" role="dialog" aria-labelledby="reportProblemModalLabel"
+     data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="reportProblemModalLabel">Report a Problem</h4>
+            </div>
+            <div class="modal-body">
+                <form action="https://www.abdn.ac.uk/mytimetable/help/reportProblem" id="reportProblemForm" method="post" accept-charset="utf-8">
+                                                               <input type="hidden" name="csrf_timetables" value="cd63f44f6c19b490f3ff6106d549cf86" />
+                    
+<input type="hidden" name="rapOS" value="Windows 10" />
+                    
+<input type="hidden" name="rapBrowser" value="Firefox/135.0" />
+                    
+<input type="hidden" name="rapPage" value="attendancecodes/recordAttendanceSuccess/144766/873137" />
+                    
+<input type="hidden" name="rapIPAddr" value="137.50.156.214" />
+
+                    <p class="alert alert-info">
+                        The <a href="https://www.abdn.ac.uk/toolkit/systems/mytimetable/" target="_blank">Toolkit</a>
+                        contains helpful video guides on topics such as class selection and missing courses in MyTimetable.
+                        We recommend watching relevant videos in the Toolkit before submitting this form.
+                    </p>
+
+                    <p>Fill in the form below and we will get back to you as soon as we can.</p>
+
+                    <div id="rapValidationErrors" class="alert alert-danger hide">
+                        <p>There was a problem with your submission. Please review the form below.</p>
+                    </div>
+
+                    <div id="reportProblemStep1" class="form-group">
+                        <label for="rapProblem">What is the problem?</label>
+                        <select id="rapProblem" name="rapProblem" required class="form-control">
+                            <option value="">Please select...</option>
+                            <option value="noSpace">I cannot select a class because all other classes are full</option>
+                            <option value="clash">I have a clash or am seeing the message 'Unavailable due to a clash'</option>
+                            <option value="missing">A course is missing</option>
+                            <option value="attendance">I am unable to record my attendance</option>
+                            <option value="general">I have a general query about one of my courses (e.g. teaching/my studies)</option>
+                            <option value="other">My problem is not listed above</option>
+                        </select>
+                    </div>
+
+                    <fieldset id="reportProblemStep2" class="hide">
+                        <div  class="form-group">
+                            <label for="rapCourse">If your problem relates to a specific course, please select it here</label>
+                            <select id="rapCourse" name="rapCourse" class="form-control">
+                                <option value="">Please select...</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="reportProblemStep3" class="hide">
+                        <div id="missing-course-info" class="alert alert-warning hide">
+                            <p>
+                                <strong>Please confirm the following:</strong>
+                            </p>
+                            <ul>
+                                <li>I have waited three hours since completing MyCurriculum.</li>
+                                <li>I have checked and confirmed my course is not capped.</li>
+                                <li>My course is supposed to have timetabled classes.</li>
+                            </ul>
+                            <p>
+                                If you have answered 'no' to any of the above questions,
+                                <a href="https://www.abdn.ac.uk/mytimetable/help/missingCourses">view further instructions in our Help section</a>
+                                before submitting a query via this form.
+                            </p>
+                            <p>
+                                If you have answered 'yes' to all of the above questions, please supply the course code
+                                and name below.
+                            </p>
+                        </div>
+                        <div id="problem-not-listed-info" class="alert alert-warning hide">
+                            <p>
+                                If your problem is relating to MyCurriculum, please
+                                <a href="https://www.abdn.ac.uk/support-enquiries/help-with/mycurriculum" target="_blank">visit our dedicated support site</a>
+                                for assistance.
+                            </p>
+                            <p>
+                                Report a Problem is for requesting assistance with MyTimetable problems only.
+                            </p>
+                        </div>
+                        <div id="attendance-info" class="alert alert-warning hide">
+                            <p>
+                                If possible, please provide the following information. This will help us investigate your query more quickly.
+                            </p>
+                            <ul>
+                                <li>Date and time of the affected class.</li>
+                                <li>Eight-digit class code (you will find this with the QR code).</li>
+                            </ul>
+                        </div>
+                        <div id="general-info">
+                            <p>
+                                <a href="https://www.abdn.ac.uk/students/student-life/school-office-locations-and-contacts.php" target="_blank">Your school</a>
+                                can assist with general queries about any of your courses, such as where to access teaching materials or
+                                how to find your tutor's contact details. Alternatively, you might be able to get answers in your course
+                                area in MyAberdeen.
+                            </p>
+                            <p>
+                                For MyCurriculum or Online Registration queries, please
+                                <a href="https://www.abdn.ac.uk/support-enquiries" target="_blank">visit our dedicated support site</a>
+                                for tailored guidance.
+                            </p>
+                        </div>
+                        <div id="further-info" class="form-group">
+                            <label for="rapInformation">Further information</label>
+                            <textarea id="rapInformation" name="rapInformation"  class="form-control" rows="6"
+                                      placeholder="Please provide any additional relevant information. The more detail you can provide, the quicker we will be able to help solve your problem."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <p id="technical-info" class="small text-muted">
+                        We collect some technical information, such as your web browser and operating system, along
+                        with your request. This information helps us to investigate issues more quickly. If you would
+                        rather not let us see this, please report your problem directly to the
+                        <a href="mailto:servicedesk@abdn.ac.uk">Service Desk</a>.
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="sendReport" type="button" class="btn btn-action">Submit Report</button>
+            </div>
+        </div>
+    </div>
+    <div id="course-loader" class="timetable-loader hidden">
+        <img alt="Loading" src="assets/img/ajax-loader.gif">
+    </div>
+</div>
+
+<script>
+    var haveCourseList = false;
+
+    $(document).ready(function() {
+        // Clear the modal on show.
+        $('#reportProblemModal').on('show.bs.modal', function () {
+            $('#reportProblemForm').trigger('reset');
+            $('#reportProblemStep2, #reportProblemStep3').removeClass('show');
+            $('#reportProblemStep2, #reportProblemStep3').addClass('hide');
+        })
+
+        $('#rapProblem').on('change', function() {
+            // Obtain the problem description.
+            var problem = $('#rapProblem').val();
+
+            // Check if an option was selected.
+            if (problem !== '') {
+                // Check if we should enable the course box or not.
+                if (problem === 'noSpace' || problem === 'clash' || problem === 'attendance') {
+                    if (!haveCourseList) {
+                        getCourseList();
+                    }
+
+                    $('#reportProblemStep2').removeClass('hide');
+                    $('#reportProblemStep2').addClass('show');
+                } else {
+                    $('#reportProblemStep2').removeClass('show');
+                    $('#reportProblemStep2').addClass('hide');
+                }
+
+                if (problem === 'missing') {
+                    $('#missing-course-info').removeClass('hide');
+                } else {
+                    $('#missing-course-info').addClass('hide');
+                }
+
+                if (problem === 'other') {
+                    $('#problem-not-listed-info').removeClass('hide');
+                } else {
+                    $('#problem-not-listed-info').addClass('hide');
+                }
+
+                if (problem === 'attendance') {
+                    $('#attendance-info').removeClass('hide');
+                } else {
+                    $('#attendance-info').addClass('hide');
+                }
+
+                if (problem === 'general') {
+                    $('#sendReport').attr('disabled', true);
+                    $('#general-info').removeClass('hide');
+                    $('#further-info').addClass('hide');
+                    $('#technical-info').addClass('hide');
+                } else {
+                    $('#sendReport').attr('disabled', false);
+                    $('#general-info').addClass('hide');
+                    $('#further-info').removeClass('hide');
+                    $('#technical-info').removeClass('hide');
+                }
+
+                // Remove the disabling of the comments box.
+                $('#reportProblemStep3').removeClass('hide');
+                $('#reportProblemStep3').addClass('show');
+            } else {
+                // Reset the disabled state.
+                $('#reportProblemStep2, #reportProblemStep3').removeClass('show');
+                $('#reportProblemStep2, #reportProblemStep3').addClass('hide');
+            }
+        });
+
+        $('#sendReport').on('click', function() {
+            // Quick validate.
+            if (validate()) {
+                // Reset the disabled state.
+                $('#reportProblemStep2, #reportProblemStep3').removeClass('show');
+                $('#reportProblemStep2, #reportProblemStep3').addClass('hide');
+
+                // Submit the form.
+                submitProblemReport();
+            }
+        });
+    });
+
+    /**
+     * Validate.
+     *
+     * Validates the inputs from the Report a Problem form to make sure that
+     * the appropriate fields are completed based on the chosen problem type.
+     *
+     * @returns {Boolean} true on successful validation
+     */
+    function validate() {
+        //  Remove all previous validation errors.
+        $('#rapValidationErrors').addClass('hide');
+        $('#rapProblem').parents('.form-group').removeClass('has-error');
+        $('#rapCourse').parents('.form-group').removeClass('has-error');
+        $('#rapInformation').parents('.form-group').removeClass('has-error');
+
+        // Obtain the problem fields.
+        var problem     = $('#rapProblem').val();
+        var course      = $('#rapCourse').val();
+        var information = $('#rapInformation').val();
+
+        // Validate the input.
+        if (problem === '') {
+            // No problem specified.
+            $('#rapValidationErrors').removeClass('hide');
+            $('#rapProblem').parents('.form-group').addClass('has-error');
+            return false;
+        } else if ((problem === 'noSpace' || problem === 'clash' || problem === 'attendance') && course === '') {
+            // Course full or course clash requires you to pick a course.
+            $('#rapValidationErrors').removeClass('hide');
+            $('#rapCourse').parents('.form-group').addClass('has-error');
+            return false;
+        } else if ((problem === 'missing' || problem === 'other') && information === '') {
+            // If the course is missing, or something else, more info is required.
+            $('#rapValidationErrors').removeClass('hide');
+            $('#rapInformation').parents('.form-group').addClass('has-error');
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Get course list.
+     *
+     * Requests the course listing for the current user via an AJAX request.
+     *
+     * @returns {undefined}
+     */
+    function getCourseList() {
+        $('#course-loader').removeClass('hidden');
+
+        $.ajax({
+            url: "https://www.abdn.ac.uk/mytimetable/courses/getMyCoursesAjax",
+            dataType: 'json'
+        })
+        .done(function(data) {
+            // Process data.
+            populateCourseList(data.courses);
+            haveCourseList = true;
+
+            // Hide course loader.
+            $('#course-loader').addClass('hidden');
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            // Alert about error.
+            alert("Failed to get course list: " + errorThrown);
+
+            // Hide course loader.
+            $('#course-loader').addClass('hidden');
+        });
+    }
+
+    /**
+     * Populate course list.
+     *
+     * Processes the JSON object returned via the AJAX call and creates option
+     * elements to sit in the course list.
+     *
+     * @param {object} data the JSON object containing course records
+     *
+     * @returns {undefined}
+     */
+    function populateCourseList(data) {
+        $.each(data, function(i, record) {
+            $('#rapCourse').append($('<option/>')
+                           .attr("value", record.coursecode + ":" + record.id)
+                           .html(record.coursecode + " " + record.coursename));
+        });
+    }
+
+    /**
+     * Submit problem report.
+     *
+     * Submits the problem via AJAX to the processing server.
+     *
+     * @returns {undefined}
+     */
+    function submitProblemReport() {
+        // Add an action blocker.
+        $('#course-loader').removeClass('hidden');
+
+        // Serialize form to start.
+        var formData = $('#reportProblemForm').serialize();
+
+        // Process the form.
+        $.ajax({
+            type     : 'POST',
+            url      : 'https://www.abdn.ac.uk/mytimetable/help/reportProblem',
+            data     : formData,
+            dataType : 'json',
+            encode   : true
+        })
+        .done(function(data) {
+            // Report success.
+            swal({
+                title: 'Report sent',
+                text: 'Your report has been received, and we will be in touch as soon as possible. Please be patient while we review your query.',
+                type: 'success'
+            });
+
+            // Hide course loader.
+            $('#course-loader').addClass('hidden');
+
+            // Hide modal.
+            $('#reportProblemModal').modal('hide');
+
+            // Reset form.
+            $('#reportProblemForm').trigger("reset");
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            // Sweet alert about error.
+            swal({
+                title: 'An error has occurred',
+                text: 'Sorry, an error has occurred and your query has not been received. Please contact the Service Desk by email instead. ' + errorThrown,
+                type: 'error'
+            });
+
+            // Hide course loader.
+            $('#course-loader').addClass('hidden');
+        });
+    }
+</script>
+            <div class="footer-pad">&nbsp;</div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <p>&copy; 2025</p>
+                        <p><span class="uoa-louder">University of Aberdeen</span></p>
+                        <p>King's College<br>
+                           Aberdeen<br>
+                           AB24 3FX</p>
+                        <p>Tel: <a href="tel:+441224272000">+44 (0)1224 272000</a></p>
+                        <ul>
+                            <li>
+                                <a href="https://www.abdn.ac.uk/about/our-website/accessibility.php" target="_blank">
+                                    Accessibility Statement
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.abdn.ac.uk/about/our-website/cookies.php" target="_blank">
+                                    Cookies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.abdn.ac.uk/about/our-website/privacy.php" target="_blank">
+                                    Privacy Statement
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.abdn.ac.uk/staffnet/governance/freedom-of-information-254.php" target="_blank">
+                                    Freedom of Information
+                                </a>
+                            </li>
+                        </ul>
+
+                        <p class="uoa-charityline">
+                            The University of Aberdeen is a charity registered in Scotland No.SC013683
+                        </p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <p>Version: August 2024</p>
+                                                <p>
+                            For help and support, please use the
+                            <a href="#" id="reportProblem" type="button"
+                               data-toggle="modal"
+                               data-target="#reportProblemModal">Report a Problem</a> feature and your <br>query will be
+                            submitted to the appropriate support team
+                        </p>
+                                                <p>
+                            <a href="https://www.abdn.ac.uk/toolkit/systems/mytimetable/" target="_blank">Visit the Toolkit</a>
+                            to view helpful video guides to using MyTimetable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            $(document).ready(function(){
+                //bind dismissable alerts
+                window.setInterval(function() {
+                    $(".alert-autodismiss").alert('close');
+                }, 3000);
+            });
+        </script>
+                    <script src="https://wchat.freshchat.com/js/widget.js"></script>
+            <script>
+                window.fcWidget.init({
+                    config: {
+                        disableNotifications: true
+                    },
+                    token: "a19d2865-e691-48a3-be72-dcf0527f638e",
+                    host: "https://wchat.eu.freshchat.com",
+                    siteId: "MyTimetable",
+                                            externalId:"u03iw22",
+                        firstName: "ILYA  ",
+                        lastName: "WAYWELL",
+                        email: "i.waywell.22@abdn.ac.uk",
+                                        tags: [
+                                                    "mytimetablepick"
+                                            ],
+
+                });
+            </script>
+            </body>
+</html>
